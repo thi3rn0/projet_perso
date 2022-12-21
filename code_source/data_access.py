@@ -5,7 +5,9 @@ DATABASE = "db_appli"
 USER = "dev_apprentissage"
 PASSWORD = "dev"
 PORT = 5432
-#fonction de connection
+
+
+# fonction de connection
 
 
 def connect():
@@ -39,6 +41,12 @@ def connect():
 
 
 def creer_liste_classes():
+    """
+    description fonction
+    :param
+    :return
+
+    """
     # récupérer la requête sql contenant les classes
     connexion = psycopg2.connect(host=HOST, database=DATABASE, user=USER, password=PASSWORD, port=PORT)
     cur = connexion.cursor()
@@ -47,7 +55,13 @@ def creer_liste_classes():
     res = cur.fetchall()
     return res
 
+
 def creer_liste_matieres_cp():
+    """
+    description fonction
+    :param
+    :return
+    """
     connexion = psycopg2.connect(host=HOST, database=DATABASE, user=USER, password=PASSWORD, port=PORT)
     cur = connexion.cursor()
     sql_matieres_cp = """ SELECT * FROM "MATIERES_CP" """
@@ -57,6 +71,25 @@ def creer_liste_matieres_cp():
 
 
 def creer_liste_modules_maths_cp():
+    """
+    description fonction
+    :param
+    :return
+    """
+    connexion = psycopg2.connect(host=HOST, database=DATABASE, user=USER, password=PASSWORD, port=PORT)
+    cur = connexion.cursor()
+    sql_maths_cp = """ SELECT * FROM "MODULES_MATHS_CP" ORDER BY id_modules_maths_cp ASC  """
+    cur.execute(sql_maths_cp)
+    res = cur.fetchall()
+    return res
+
+
+def creer_liste_conseils_maths_cp():
+    """
+    description fonction
+    :param
+    :return
+    """
     connexion = psycopg2.connect(host=HOST, database=DATABASE, user=USER, password=PASSWORD, port=PORT)
     cur = connexion.cursor()
     sql_maths_cp = """ SELECT * FROM "MODULES_MATHS_CP" """
@@ -64,10 +97,16 @@ def creer_liste_modules_maths_cp():
     res = cur.fetchall()
     return res
 
-def creer_liste_conseils_maths_cp():
+
+def recuperer_conseil(choix_mod):
+    """
+    description fonction
+    :param
+    :return
+    """
     connexion = psycopg2.connect(host=HOST, database=DATABASE, user=USER, password=PASSWORD, port=PORT)
     cur = connexion.cursor()
-    sql_maths_cp = """ SELECT * FROM "MODULES_MATHS_CP" """
+    sql_maths_cp = f""" SELECT conseil_maths_cp FROM public."MODULES_MATHS_CP" WHERE id_modules_maths_cp = {choix_mod}  ORDER BY id_modules_maths_cp ASC """
     cur.execute(sql_maths_cp)
     res = cur.fetchall()
     return res
