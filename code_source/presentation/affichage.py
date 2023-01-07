@@ -1,5 +1,5 @@
 # construction de menus d'affichages simples
-from data_access import *
+from code_source.data.data_access import *
 
 
 def afficher_accueil(nom):

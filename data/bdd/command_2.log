@@ -1,4 +1,0 @@
-INSERT INTO "MATIERES_CP"(nom_matiere_cp) VALUES ('Mathématiques CP');
-INSERT 0 1
-INSERT INTO "MATIERES_CP"(nom_matiere_cp) VALUES ('Français CP');
-INSERT 0 1

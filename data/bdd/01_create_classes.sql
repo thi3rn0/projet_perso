@@ -1,5 +1,0 @@
-INSERT INTO "CLASSES"(nom_classe) VALUES ('CP');
-INSERT INTO "CLASSES"(nom_classe) VALUES ('CE1');
-INSERT INTO "CLASSES"(nom_classe) VALUES ('CE2');
-INSERT INTO "CLASSES"(nom_classe) VALUES ('CM1');
-INSERT INTO "CLASSES"(nom_classe) VALUES ('CM2');

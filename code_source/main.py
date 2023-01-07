@@ -1,4 +1,4 @@
-from affichage import *
+from code_source.presentation.affichage import *
 
 nom_enfant = str(input("Entre ton nom: "))
 afficher_accueil(nom_enfant)
