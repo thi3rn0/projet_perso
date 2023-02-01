@@ -17,7 +17,7 @@ def afficher_liste_classes():
     :param
     :return
     """
-    liste_des_classes = creer_liste_classes()
+    liste_des_classes = get_classes()
     affichage_liste_classes = {}
     num_choix_classes = 1
     for element in liste_des_classes:
@@ -29,13 +29,13 @@ def afficher_liste_classes():
         print('\t' + str(affichage_classe[0]) + ") " + affichage_classe[1])
 
 
-def afficher_liste_matieres_cp():
+def afficher_liste_matieres(classe):
     """
     description fonction
     :param
     :return
     """
-    liste_des_matieres = creer_liste_matieres_cp()
+    liste_des_matieres = get_matieres(classe)
     affichage_liste_matieres = {}
     num_choix_matieres = 1
     for element in liste_des_matieres:
@@ -47,33 +47,32 @@ def afficher_liste_matieres_cp():
         print('\t' + str(matiere[0]) + ") " + matiere[1])
 
 
-def afficher_modules_maths_cp():
+def afficher_modules(matiere):
     """
     description fonction
     :param
     :return
     """
-    liste_modules_maths_cp = creer_liste_modules_maths_cp()
-    affichage_modules_maths_cp = {}
-    num_choix_modules_maths_cp = 1
-    for element in liste_modules_maths_cp:
-        affichage_modules_maths_cp[num_choix_modules_maths_cp] = element[1]
-        num_choix_modules_maths_cp += 1
-    # affichage permettant de choisir un numéro associé à une matière
+    liste_modules = get_modules(matiere)
+    affichage_modules = {}
+    num_choix_modules = 1
+    for element in liste_modules:
+        affichage_modules[num_choix_modules] = element[1]
+        num_choix_modules += 1
+    # affichage permettant de choisir un numéro associé à un module
     print("Liste des modules: ")
-    for module in affichage_modules_maths_cp.items():
+    for module in affichage_modules.items():
         print('\t' + str(module[0]) + ") " + module[1])
 
 
-def affichage_conseil_maths_cp(choix_mod):
-    """
-    description fonction
-    :param
-    :return
-    """
-    conseil_maths_cp = recuperer_conseil(choix_mod)
-    print("Voici ce que l'on t'encourage à mettre en place: ", conseil_maths_cp)
-
-
-def affichage_ressource_maths_cp():
-    pass
+def afficher_ressource(module):
+    liste_ressources = get_ressources(module)
+    affichage_ressource = {}
+    num_choix_ressource = 1
+    for element in liste_ressources:
+        affichage_ressource[num_choix_ressource] = element[3]
+        num_choix_ressource += 1
+    # affichage permettant de choisir un numéro associé à une ressource
+    print("Ressource(s) proposé(es): ")
+    for ressource in affichage_ressource.items():
+        print('\t' + str(ressource[0]) + ") " + ressource[1])

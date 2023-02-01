@@ -1,8 +1,10 @@
 import psycopg2
 
+
+
 HOST = "localhost"
 DATABASE = "db_appli"
-USER = "dev_apprentissage"
+USER = "dev"
 PASSWORD = "dev"
 PORT = 5432
 
@@ -40,7 +42,7 @@ def connect():
             print('Connection à la base de données fermée.')
 
 
-def creer_liste_classes():
+def get_classes():
     """
     description fonction
     :param
@@ -55,8 +57,8 @@ def creer_liste_classes():
     res = cur.fetchall()
     return res
 
-
-def creer_liste_matieres_cp():
+#créer une liste selon la classe choisie
+def get_matieres(classe):
     """
     description fonction
     :param
@@ -64,13 +66,13 @@ def creer_liste_matieres_cp():
     """
     connexion = psycopg2.connect(host=HOST, database=DATABASE, user=USER, password=PASSWORD, port=PORT)
     cur = connexion.cursor()
-    sql_matieres_cp = """ SELECT * FROM "MATIERES_CP" """
-    cur.execute(sql_matieres_cp)
+    sql_matieres = f""" SELECT * FROM "MATIERES" WHERE id_classe={classe} """
+    cur.execute(sql_matieres)
     res = cur.fetchall()
     return res
 
 
-def creer_liste_modules_maths_cp():
+def get_modules(matiere):
     """
     description fonction
     :param
@@ -78,13 +80,12 @@ def creer_liste_modules_maths_cp():
     """
     connexion = psycopg2.connect(host=HOST, database=DATABASE, user=USER, password=PASSWORD, port=PORT)
     cur = connexion.cursor()
-    sql_maths_cp = """ SELECT * FROM "MODULES_MATHS_CP" ORDER BY id_modules_maths_cp ASC  """
-    cur.execute(sql_maths_cp)
+    sql_modules = f""" SELECT * FROM "MODULES" WHERE id_matiere={matiere}  """
+    cur.execute(sql_modules)
     res = cur.fetchall()
     return res
 
-
-def creer_liste_conseils_maths_cp():
+def get_ressources(module):
     """
     description fonction
     :param
@@ -92,21 +93,8 @@ def creer_liste_conseils_maths_cp():
     """
     connexion = psycopg2.connect(host=HOST, database=DATABASE, user=USER, password=PASSWORD, port=PORT)
     cur = connexion.cursor()
-    sql_maths_cp = """ SELECT * FROM "MODULES_MATHS_CP" """
-    cur.execute(sql_maths_cp)
+    sql_ressources = f""" SELECT * FROM "ressources" WHERE id_module={module}"""
+    cur.execute(sql_ressources)
     res = cur.fetchall()
     return res
 
-
-def recuperer_conseil(choix_mod):
-    """
-    description fonction
-    :param
-    :return
-    """
-    connexion = psycopg2.connect(host=HOST, database=DATABASE, user=USER, password=PASSWORD, port=PORT)
-    cur = connexion.cursor()
-    sql_maths_cp = f""" SELECT conseil_maths_cp FROM public."MODULES_MATHS_CP" WHERE id_modules_maths_cp = {choix_mod}  ORDER BY id_modules_maths_cp ASC """
-    cur.execute(sql_maths_cp)
-    res = cur.fetchall()
-    return res
