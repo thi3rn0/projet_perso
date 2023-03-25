@@ -24,7 +24,7 @@ while True:
         while True:
             try:
                 #choix du module en fonction de la matière
-                liste_modules = afficher_modules(choix_matiere)
+                liste_modules = afficher_modules(choix_matiere, choix_classe)
                 choix_module = int(input("Choisis le module que tu souhaites aborder: "))
             except ValueError:
                 print("Merci d'entrer un entier parmi la liste :) ")
@@ -36,6 +36,6 @@ while True:
                     liste_ressource = afficher_ressource(choix_module)
                     choix_ressource = int(input("Choisis ta ressource: "))
                 except ValueError:
-                    print("Merci d'entrer un entier parmi la liste :) ")
+                    print("Merci de sélectionner un nombre parmi la liste.")
 
 

@@ -52,7 +52,7 @@ def get_classes():
     # récupérer la requête sql contenant les classes
     connexion = psycopg2.connect(host=HOST, database=DATABASE, user=USER, password=PASSWORD, port=PORT)
     cur = connexion.cursor()
-    sql_classes = """ SELECT * FROM "CLASSES" """
+    sql_classes = """ SELECT * FROM "CLASSE" """
     cur.execute(sql_classes)
     res = cur.fetchall()
     return res
@@ -66,13 +66,13 @@ def get_matieres(classe):
     """
     connexion = psycopg2.connect(host=HOST, database=DATABASE, user=USER, password=PASSWORD, port=PORT)
     cur = connexion.cursor()
-    sql_matieres = f""" SELECT * FROM "MATIERES" WHERE id_classe={classe} """
+    sql_matieres = f""" SELECT * FROM "MATIERE" """
     cur.execute(sql_matieres)
     res = cur.fetchall()
     return res
 
 
-def get_modules(matiere):
+def get_modules(matiere, classe):
     """
     description fonction
     :param
@@ -80,7 +80,7 @@ def get_modules(matiere):
     """
     connexion = psycopg2.connect(host=HOST, database=DATABASE, user=USER, password=PASSWORD, port=PORT)
     cur = connexion.cursor()
-    sql_modules = f""" SELECT * FROM "MODULES" WHERE id_matiere={matiere}  """
+    sql_modules = f""" select "MODULE".id_module,nom_module from "MODULE" join "MODULE_CLASSE" on "MODULE_CLASSE".id_module = "MODULE".id_module join "CLASSE" ON "CLASSE".id_classe = "MODULE_CLASSE".id_classe where id_matiere={matiere} and "CLASSE".id_classe={classe}; """
     cur.execute(sql_modules)
     res = cur.fetchall()
     return res
@@ -93,7 +93,7 @@ def get_ressources(module):
     """
     connexion = psycopg2.connect(host=HOST, database=DATABASE, user=USER, password=PASSWORD, port=PORT)
     cur = connexion.cursor()
-    sql_ressources = f""" SELECT * FROM "ressources" WHERE id_module={module}"""
+    sql_ressources = f""" SELECT "RESSOURCE".id_ressource, ressource FROM "RESSOURCE" WHERE id_module={module}"""
     cur.execute(sql_ressources)
     res = cur.fetchall()
     return res
