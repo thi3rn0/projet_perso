@@ -55,15 +55,11 @@ def afficher_modules(matiere, classe):
     :return
     """
     liste_modules = get_modules(matiere, classe)
-    affichage_modules = {}
-    num_choix_modules = 1
-    for element in liste_modules:
-        affichage_modules[num_choix_modules] = element[1]
-        num_choix_modules += 1
+    affichage_modules = dict(liste_modules)
     # affichage permettant de choisir un numéro associé à un module
     print("Liste des modules: ")
-    for module in affichage_modules.items():
-        print('\t' + str(module[0]) + ") " + module[1])
+    for k, v in affichage_modules.items():
+        print('\t' + str(k) + ") " + str(v))
     print("----------------")
 
 def afficher_ressource(module):

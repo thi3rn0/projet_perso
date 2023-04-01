@@ -93,7 +93,7 @@ def get_ressources(module):
     """
     connexion = psycopg2.connect(host=HOST, database=DATABASE, user=USER, password=PASSWORD, port=PORT)
     cur = connexion.cursor()
-    sql_ressources = f""" SELECT "RESSOURCE".id_ressource, ressource FROM "RESSOURCE" WHERE id_module={module}"""
+    sql_ressources = f""" SELECT "RESSOURCE".id_module, ressource FROM "RESSOURCE" WHERE id_module={module}"""
     cur.execute(sql_ressources)
     res = cur.fetchall()
     return res

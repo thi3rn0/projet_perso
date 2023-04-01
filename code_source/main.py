@@ -36,6 +36,6 @@ while True:
                     liste_ressource = afficher_ressource(choix_module)
                     choix_ressource = int(input("Choisis ta ressource: "))
                 except ValueError:
-                    print("Merci de sélectionner un nombre parmi la liste.")
+                    print("Merci de sélectionner un nombre parmi la liste !")
 
 
