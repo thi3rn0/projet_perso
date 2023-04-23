@@ -32,7 +32,7 @@ def afficher_liste_classes():
 def afficher_liste_matieres(classe):
     """
     Affiche la liste des matières issues du resulat de la recherche, avec une formatage permettant de présenter l'index
-    pour chaque matière à l'utilisateur. Cet index sera utilisé ensuite pour que l'utilisateur indique son choix    :param
+    pour chaque matière à l'utilisateur. Cet index sera utilisé ensuite pour que l'utilisateur indique son choix 
     :param classe
     """
     liste_des_matieres = get_matieres(classe)
