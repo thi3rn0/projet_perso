@@ -6,10 +6,10 @@ class User:
     # ------------------------------
     # constructeur
     # ------------------------------
-    def __int__(self):
+    def __init__(self):
         self.nom = "username"
         self.prenom = "user_lastname"
-        self.age = "user_age"
+        self.age = 0
         self.classe = Classe()
 
     # ------------------------------
@@ -49,17 +49,4 @@ class User:
     # ------------------------------
     # méthodes
     # ------------------------------
-
-    #choisir une classe
-
-    #choisir une matière
-
-    #choisir un module
-
-    #choisir une ressource
-
-
-
-
-    #sauvegarder une ressource
 

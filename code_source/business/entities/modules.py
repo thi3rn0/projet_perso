@@ -7,7 +7,7 @@ class Module:
 # ------------------------------
 # constructeur
 # ------------------------------
-    def __int__(self):
+    def __init__(self):
         self.nom = "nom_module"
         self.matiere = Matiere()
         self.classe = Classe()

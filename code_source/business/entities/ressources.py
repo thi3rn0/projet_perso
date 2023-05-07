@@ -6,7 +6,7 @@ class Ressource:
 # ------------------------------
 # constructeur
 # ------------------------------
-    def __int__(self):
+    def __init__(self):
         self.ressource = "ressource"
         self.module = Module()
         self.matiere = Matiere()

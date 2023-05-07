@@ -5,7 +5,7 @@ class Classe:
 # ------------------------------
 # constructeur
 # ------------------------------
-    def __int__(self):
+    def __init__(self):
         self.nom = "nom_classe"
 
 # ------------------------------
