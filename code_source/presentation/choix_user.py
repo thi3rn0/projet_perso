@@ -35,7 +35,7 @@ class Choix:
     def choisir_ressource(self):
         pass
 
-    pass
+
 
 
 

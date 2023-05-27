@@ -1,5 +1,5 @@
 import psycopg2
-from code_source.business.components.recuperer_choix import RecupChoix
+
 
 
 
@@ -16,7 +16,7 @@ class DataAccess:
         self._USER = "dev"
         self._PASSWORD = "dev"
         self._PORT = 5432
-        self._choix = RecupChoix()
+
 
     # fonction de connection
     def connect(self):
@@ -83,24 +83,21 @@ class DataAccess:
         return res
 
 
-    def get_modules(self):
-        choix_m = self._choix.get_choice_matiere()
-        choix_c = self._choix.get_choice_classe()
+    def get_modules(self, choix_c, choix_m):
         connexion = psycopg2.connect(host=self._HOST, database=self._DATABASE, user=self._USER, password=self._PASSWORD,
                                      port=self._PORT)
         cur = connexion.cursor()
-        sql_modules = f""" select "MODULE".id_module,nom_module from "MODULE" join "MODULE_CLASSE" on "MODULE_CLASSE".id_module = "MODULE".id_module join "CLASSE" ON "CLASSE".id_classe = "MODULE_CLASSE".id_classe where id_matiere={choix_m} and "CLASSE".id_classe={choix_c}; """
+        sql_modules = f""" select "MODULE".id_module,nom_module from "MODULE" join "MODULE_CLASSE" on "MODULE_CLASSE".id_module = "MODULE".id_module join "CLASSE" ON "CLASSE".id_classe = "MODULE_CLASSE".id_classe where "CLASSE".id_classe={choix_c} and id_matiere={choix_m}; """
         cur.execute(sql_modules)
         res = cur.fetchall()
         return res
 
-    def get_ressources(self):
+    def get_ressources(self, module):
         """
         description fonction
         :param
         :return
         """
-        module = self._choix.get_choice_module()
         connexion = psycopg2.connect(host=self._HOST, database=self._DATABASE, user=self._USER, password=self._PASSWORD, port=self._PORT)
         cur = connexion.cursor()
         sql_ressources = f""" SELECT "RESSOURCE".id_module, ressource FROM "RESSOURCE" WHERE id_module={module}"""

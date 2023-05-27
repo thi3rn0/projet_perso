@@ -1,4 +1,5 @@
 from code_source.data.data_access import DataAccess
+from code_source.presentation.choix_user import Choix
 
 
 # from code_source.business.entities.classe import Classe
@@ -9,8 +10,9 @@ class RecupListe:
     # ------------------------------
     def __init__(self):
         self._data = DataAccess()
-        # self.classe = Classe()
-
+        self._choix_classe = Choix()
+        self._choix_matiere = Choix()
+        self._choix_module = Choix()
     # ------------------------------
     # propriétés
     # ------------------------------
@@ -37,9 +39,14 @@ class RecupListe:
 
     #récupérer la liste des modules( en fonction des choix matiere et classe ?)
     def get_list_modules(self):
-        liste_des_modules = self._data.get_modules()
+        classe = self._choix_classe.choisir_classe()
+        matiere = self._choix_matiere.choisir_matiere()
+        liste_des_modules = self._data.get_modules(classe, matiere)
         return liste_des_modules
 
     def get_list_ressources(self):
-        liste_des_ressources = self._data.get_ressources()
+        module = self._choix_module.choisir_module()
+        liste_des_ressources = self._data.get_ressources(module)
         return liste_des_ressources
+
+
