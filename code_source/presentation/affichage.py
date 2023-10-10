@@ -1,11 +1,11 @@
 # construction de menus d'affichages simples
 from code_source.business.entities.user import User
-from code_source.business.components.creation_listes import RecupListe
+from code_source.business.components.creation_listes import RecupElements
 
 
 class Afficher:
     def __init__(self):
-        self.create_liste = RecupListe()
+        self.create_liste = RecupElements()
         self._user = User()
 
     def afficher_accueil(self):

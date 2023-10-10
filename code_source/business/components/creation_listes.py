@@ -4,7 +4,7 @@ from code_source.presentation.choix_user import Choix
 
 # from code_source.business.entities.classe import Classe
 
-class RecupListe:
+class RecupElements:
     # ------------------------------
     # constructeur
     # ------------------------------
