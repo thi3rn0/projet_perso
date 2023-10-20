@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulaire affichages des modules</title>
+</head>
+<body>
+    <h1>Formulaire client pour affichage des modules abordés selon la classe et la matières</h1>
+    <form action="http://localhost:8000/modules" method="post">
+    <label for="classe-select">Choisir une classe</label>
+    <select name="classe" id="classe-select">
+        <option value="1">1 - CP</option>
+        <option value="2">2 - CE1</option>
+        <option value="3">3 - CE2</option>
+        <option value="4">4 - CM1</option>
+        <option value="5">5 - CM2</option>
+    </select><br>
+    <label for="matiere-select">Choisir une matière</label>
+    <select name="matiere" id="matiere-select">
+        <option value="1">1 - Mathèmatiques</option>
+        <option value="2">2 - Français</option>
+    </select><br>
+        <input type="submit">
+    </form>
+</body>
+</html>

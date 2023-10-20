@@ -87,7 +87,16 @@ class DataAccess:
         connexion = psycopg2.connect(host=self._HOST, database=self._DATABASE, user=self._USER, password=self._PASSWORD,
                                      port=self._PORT)
         cur = connexion.cursor()
-        sql_modules = f""" select "MODULE".id_module,nom_module from "MODULE" join "MODULE_CLASSE" on "MODULE_CLASSE".id_module = "MODULE".id_module join "CLASSE" ON "CLASSE".id_classe = "MODULE_CLASSE".id_classe where "CLASSE".id_classe={choix_c} and id_matiere={choix_m}; """
+        sql_modules = f""" select "MODULE".nom_module from "MODULE" join "MODULE_CLASSE" on "MODULE_CLASSE".id_module = "MODULE".id_module join "CLASSE" ON "CLASSE".id_classe = "MODULE_CLASSE".id_classe where "CLASSE".id_classe={choix_c} and id_matiere={choix_m}; """
+        cur.execute(sql_modules)
+        res = cur.fetchall()
+        return res
+
+    def all_modules(self):
+        connexion = psycopg2.connect(host=self._HOST, database=self._DATABASE, user=self._USER, password=self._PASSWORD,
+                                     port=self._PORT)
+        cur = connexion.cursor()
+        sql_modules = f""" SELECT * FROM public."MODULE_CLASSE" ORDER BY id_module ASC ; """
         cur.execute(sql_modules)
         res = cur.fetchall()
         return res
@@ -104,3 +113,5 @@ class DataAccess:
         cur.execute(sql_ressources)
         res = cur.fetchall()
         return res
+
+

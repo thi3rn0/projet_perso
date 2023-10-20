@@ -13,20 +13,6 @@ class RecupElements:
         self._choix_classe = Choix()
         self._choix_matiere = Choix()
         self._choix_module = Choix()
-    # ------------------------------
-    # propriétés
-    # ------------------------------
-    #     @property
-    #     def classe(self):
-    #         return self._classe
-    #
-    #     @classe.setter
-    #     def classe(self, value):
-    #         self._classe = value
-
-    # ------------------------------
-    # méthodes
-    # ------------------------------
 
     # récupérer liste des classe via la requête sql
     def get_list_classes(self):
@@ -36,6 +22,10 @@ class RecupElements:
     def get_list_matieres(self):
         liste_des_matieres = self._data.get_matieres()
         return liste_des_matieres
+
+    def modules(self):
+        return self._data.all_modules()
+
 
     #récupérer la liste des modules( en fonction des choix matiere et classe ?)
     def get_list_modules(self):
@@ -49,4 +39,12 @@ class RecupElements:
         liste_des_ressources = self._data.get_ressources(module)
         return liste_des_ressources
 
+    def modules_classe_matiere(self, classe, matiere):
+        return self._data.get_modules(classe, matiere)
 
+
+# elements = RecupElements()
+# classe = 1
+# matiere = 1
+# test = elements.modules_classe_matiere(classe,matiere)
+# print(test)
