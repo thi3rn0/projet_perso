@@ -11,10 +11,10 @@ class IHtmlBuilder(ABC):
     @abstractmethod
     def ajouter_paragraphe(self, texte: str):
         pass
-    #
-    # @abstractmethod
-    # def ajouter_tableau(self, tableau):
-    #     pass
+
+    @abstractmethod
+    def ajouter_tableau(self, tableau):
+        pass
 
     @abstractmethod
     def ajouter_html(self, html: str):

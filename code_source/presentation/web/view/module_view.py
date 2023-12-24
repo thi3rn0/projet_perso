@@ -6,7 +6,7 @@ class ModuleView(IView):
     def __init__(self):
         self._classe = 0
         self._matiere = 0
-        self._tableau_modules = []
+        self._tableau_modules = ["Comprendre et utiliser des nombres entiers pour dénombrer, ordonner, repérer, comparer ", "Nommer, lire, écrire, représenter des nombres entiers ", "Résoudre des problèmes en utilisant des nombres entiers et le calcul" , "Faits numériques mémorisés utiles pour tous les types de calcul", "Procédure de calcul mental ", "Calcul en ligne", "Calcul posé", "Comparer, estimer, mesurer des longueurs, des masses, des contenances, des durées, tiliser le lexique, les unités, les instruments de mesures spécifiques de ces grandeurs", "Résoudre des problèmes impliquant des longueurs, des masses, des contenances, des durées, des prix", "Se repérer et se déplacer en utilisant des repères et des représentations", "Reconnaître, nommer, décrire, reproduire quelques solides", "Reconnaître, nommer, décrire, reproduire, construire quelques figures géométriques - Reconnaître et utiliser les notions d’alignement, d’angle droit,d’égalité de longueurs, de milieu, de symétrie"]
 
     @property
     def classe(self):
@@ -37,7 +37,8 @@ class ModuleView(IView):
         html_table = "<ul>"
         for item in tableau:
             # html_table += "<tr>"
-            html_table += f"<li>{item}</li>"
+            # print(item)
+            html_table += f"<li>{str(item)}</li>"
             # html_table += "<br>"
             # html_table += "</tr>"
         html_table += "</ul>"
@@ -53,4 +54,6 @@ class ModuleView(IView):
 
         return htmlBuilder.HTML
 
+t = ModuleView()
+c = t._build_liste_modules()
 

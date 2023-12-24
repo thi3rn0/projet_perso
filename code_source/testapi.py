@@ -5,7 +5,7 @@ app = FastAPI()
 
 
 """
-définition de la page d'index par défaut
+définition de la page d'accueil
 """
 @app.get("/")
 async def root():
@@ -17,6 +17,9 @@ async def root():
 #     # """voir dans la doc de fastapi comment remplir les paramètres classe et matières"""
 #     # return HTMLResponse(content=controller.get_modules(classe=, matiere=), status_code=200)
 #     pass
+"""
+page formulaire
+"""
 @app.post("/modules")
 async def trier_modules(classe: int = Form(...), matiere: int = Form(...)):
     controller = ModuleController()
