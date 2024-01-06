@@ -6,7 +6,7 @@ class ModuleView(IView):
     def __init__(self):
         self._classe = 0
         self._matiere = 0
-        self._tableau_modules = ["Comprendre et utiliser des nombres entiers pour dénombrer, ordonner, repérer, comparer ", "Nommer, lire, écrire, représenter des nombres entiers ", "Résoudre des problèmes en utilisant des nombres entiers et le calcul" , "Faits numériques mémorisés utiles pour tous les types de calcul", "Procédure de calcul mental ", "Calcul en ligne", "Calcul posé", "Comparer, estimer, mesurer des longueurs, des masses, des contenances, des durées, tiliser le lexique, les unités, les instruments de mesures spécifiques de ces grandeurs", "Résoudre des problèmes impliquant des longueurs, des masses, des contenances, des durées, des prix", "Se repérer et se déplacer en utilisant des repères et des représentations", "Reconnaître, nommer, décrire, reproduire quelques solides", "Reconnaître, nommer, décrire, reproduire, construire quelques figures géométriques - Reconnaître et utiliser les notions d’alignement, d’angle droit,d’égalité de longueurs, de milieu, de symétrie"]
+        self._tableau_modules = []
 
     @property
     def classe(self):

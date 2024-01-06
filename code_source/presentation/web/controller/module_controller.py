@@ -20,6 +20,3 @@ class ModuleController:
         return self._view.render()
 
 
-    #
-    # def testHTTP(self):
-    #     return "Ca marche"

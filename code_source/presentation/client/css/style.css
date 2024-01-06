@@ -1,0 +1,18 @@
+.background_hero{
+    background-image: url("../images/kids.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.centered-card {
+  margin: 0 auto;
+  max-width: 400px; /* Taille réduite de la carte */
+}
+
+footer{
+    padding: 0 0 0;
+}
+
+.hero-head > .navbar > .container{
+    margin: 0;
+}
