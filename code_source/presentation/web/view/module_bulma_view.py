@@ -37,6 +37,15 @@ class ModuleBulmaView(IView):
     def _build_module_tile(self):
         pass
 
+    def _buildHTMLTiles(self):
+        html_tile = "<div class=\"tile is-parent\">"
+
+        html_tile += "<article class=\"tile is-child box\">"
+        html_tile += "<p class=\"subtitle\">Contenu de la tuile 1</p>"
+        html_tile += "</article>"
+        html_tile += "</div>"
+        pass
+
     #méthode qui permettra de créer la page contenant les tuiles
     def render(self) -> str:
         pass

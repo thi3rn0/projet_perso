@@ -1,3 +1,5 @@
+
+
 .background_hero{
     background-image: url("../images/kids.jpg");
     background-size: cover;
@@ -9,6 +11,14 @@
   max-width: 400px; /* Taille réduite de la carte */
 }
 
+
+
+.center-container{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+}
 footer{
     padding: 0 0 0;
 }
@@ -16,3 +26,9 @@ footer{
 .hero-head > .navbar > .container{
     margin: 0;
 }
+
+.tile:not(.is-child) {
+    display: flex;
+    flex-direction: column;
+}
+
